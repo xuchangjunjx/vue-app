@@ -2,14 +2,12 @@
   <el-container class="h-full">
     <el-header class="header">
       <div class="flex">
-        <router-link to="/" class="menu-item cursor-pointer"
-          >首页</router-link
-        >
+        <router-link to="/" class="menu-item cursor-pointer">首页</router-link>
         <router-link to="/child-router" class="menu-item cursor-pointer"
           >嵌套路由</router-link
         >
         <router-link to="/about" class="menu-item cursor-pointer"
-          >about</router-link
+          >一级路由</router-link
         >
       </div>
     </el-header>

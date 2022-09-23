@@ -5,11 +5,10 @@ body {
   height: 100vh;
   line-height: 1.67;
   font-size: 14px;
-  color: rgb(148, 163, 184);
+  color: $font-color;
   font-family: "Lato", "Source Han Sans CN", "Microsoft YaHei", sans-serif;
   text-rendering: optimizeLegibility;
   -ms-text-size-adjust: 100%;
-  background-color: #f9f9fc;
   min-width: 960px;
   font-weight: 400;
 }
@@ -17,7 +16,7 @@ body {
   height: 100%;
 }
 .bg-dark {
-  background: rgb(15, 23, 42);
+  background: $dark;
 }
 .flex {
   display: flex;
@@ -25,21 +24,20 @@ body {
   align-items: center;
 }
 .menu-item {
-  /* height: 100%; */
   padding: 4px 24px;
-  color: rgb(226, 232, 240);
+  // color: rgb(226, 232, 240);
   text-decoration: none;
   &:hover,
   &.router-link-active {
-    color: rgb(56, 189, 248);
+    color: $active-color;
   }
 }
 .cursor-pointer {
   cursor: pointer;
 }
-.p-0{
+.p-0 {
   padding: 0;
 }
-.p-12{
+.p-12 {
   padding: 12px;
 }
