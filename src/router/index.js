@@ -1,22 +1,31 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import HomeView from "../views/home/main.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    name: "home",
-    component: HomeView,
+    path: "",
+    // name: "home-main",
+    //之前的两兄弟用这个包一下
+    component: () => import("../views/home/main.vue"),
+    // 说明下面2个都归main.vue罩着了
     children: [
       {
-        path: "",
-        component: () => import("../views/home//page-a.vue"),
+        // 空path，即访问/默认就是这个页面
+        path: "/",
+        name: "page-a",
+        component: () => import("../views/home/page-a.vue"),
       },
       {
-        path: "/child-router",
+        path: "/about",
+        name: "about",
+        component: () => import("../views/about.vue"),
+      },
+      {
+        path: "/child",
         component: () => import("../views/home/child-router.vue"),
+        // 谁是谁的小弟，谁又是谁的大哥
         children: [
           {
             path: "",
@@ -24,10 +33,12 @@ const routes = [
           },
           {
             path: "page1",
+            name: "child-page1",
             component: () => import("../views/home/child-router/page1.vue"),
           },
           {
             path: "page2",
+            name: "child-page2",
             component: () => import("../views/home/child-router/page2.vue"),
           },
         ],
@@ -35,13 +46,9 @@ const routes = [
     ],
   },
   {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/about.vue"),
+    path: "*",
+    name: "not-found",
+    component: () => import("../views/not-found.vue"),
   },
 ];
 
@@ -49,6 +56,11 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
+});
+
+// 从哪来 到哪去
+router.beforeEach((from, to, next) => {
+  next();
 });
 
 export default router;

@@ -9,11 +9,16 @@ body {
   font-family: "Lato", "Source Han Sans CN", "Microsoft YaHei", sans-serif;
   text-rendering: optimizeLegibility;
   -ms-text-size-adjust: 100%;
+  background: $dark;
   min-width: 960px;
   font-weight: 400;
 }
 .h-full {
   height: 100%;
+}
+.w-50 {
+  width: 50%;
+  margin: 0 auto;
 }
 .bg-dark {
   background: $dark;
@@ -23,12 +28,16 @@ body {
   height: 100%;
   align-items: center;
 }
+.justify-between {
+  justify-content: space-between;
+}
+
 .menu-item {
   padding: 4px 24px;
-  // color: rgb(226, 232, 240);
+  color: rgb(226, 232, 240);
   text-decoration: none;
   &:hover,
-  &.router-link-active {
+  &.router-link-exact-active {
     color: $active-color;
   }
 }

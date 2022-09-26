@@ -1,14 +1,19 @@
 <template>
-  <el-container class="h-full">
+  <el-container class="h-full g-dark">
     <el-header class="header">
-      <div class="flex">
-        <router-link to="/" class="menu-item cursor-pointer">首页</router-link>
-        <router-link to="/child-router" class="menu-item cursor-pointer"
-          >嵌套路由</router-link
-        >
-        <router-link to="/about" class="menu-item cursor-pointer"
-          >一级路由</router-link
-        >
+      <div class="flex justify-between">
+        <div class="flex">
+          <router-link to="/" class="menu-item cursor-pointer"
+            >首页</router-link
+          >
+          <router-link to="/about" class="menu-item cursor-pointer"
+            >关于</router-link
+          >
+          <router-link to="/child" class="menu-item cursor-pointer"
+            >child</router-link
+          >
+        </div>
+        <div class="states" v-show="userName">欢迎👏 {{ userName }}</div>
       </div>
     </el-header>
     <el-main class="p-0">
@@ -17,7 +22,12 @@
   </el-container>
 </template>
 <script>
-export default {};
+import { mapGetters } from "vuex";
+export default {
+  computed: {
+    ...mapGetters(["userName"]),
+  },
+};
 </script>
 <style scoped lang="scss">
 .header {

@@ -2,12 +2,12 @@
   <el-container class="h-full">
     <el-aside width="200px" class="aside p-12">
       <div>
-        <router-link to="/child-router/page1" class="menu-item cursor-pointer"
+        <router-link to="/child/page1" class="menu-item cursor-pointer"
           >子路由1</router-link
         >
       </div>
       <div>
-        <router-link to="/child-router/page2" class="menu-item cursor-pointer"
+        <router-link to="/child/page2" class="menu-item cursor-pointer"
           >子路由2</router-link
         >
       </div>

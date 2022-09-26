@@ -1,3 +1,4 @@
 <template>
-  <div>about</div>
+  <div class="p-12">about</div>
 </template>
+<script>
